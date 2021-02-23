@@ -7,11 +7,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
     <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-functions.js"></script>
 
     <!-- Firechat -->
-    <link rel="stylesheet" href="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.css"
+    />
     <script src="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.js"></script>
+
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+    <!-- bootstrap -->
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
 
     <!-- Custom CSS -->
     <style>
@@ -50,31 +63,35 @@
     <div id="firechat-wrapper"></div>
     <script type="text/javascript">
       // Initialize Firebase SDK
-      var config = {
-        apiKey: "AIzaSyDcptsFsMfVyuJdRuW0TMhHWj4guFOb96Q",
-        authDomain: "nfmfriendlychat.firebaseapp.com",
-        databaseURL: "https://nfmfriendlychat.firebaseio.com"
+      var firebaseConfig = {
+        apiKey: "AIzaSyB_UfOy9uRdArhuIq4DaqFhWeX-pgSJHP8",
+        authDomain: "cgcaci21.firebaseapp.com",
+        databaseURL: "https://cgcaci21.firebaseio.com",
+        projectId: "cgcaci21",
+        storageBucket: "cgcaci21.appspot.com",
+        messagingSenderId: "595065889262",
+        appId: "1:595065889262:web:2c2908a1d24b63e5b56eff",
+        measurementId: "G-PQEQSVG6TJ",
       };
-      firebase.initializeApp(config);
-
+      firebase.initializeApp(firebaseConfig);
+      let customer = 'test';
+      let room_type = 'library';
       // Get a reference to the Firebase Realtime Database
       var chatRef = firebase.database().ref('firechat');
-
       // Create an instance of Firechat
-      var chat = new FirechatUI(chatRef, document.getElementById("firechat-wrapper"));
+      var chat = new FirechatUI(
+        chatRef,
+        document.getElementById("firechat-wrapper")
+      );
 
       // Listen for authentication state changes
-      firebase.auth().onAuthStateChanged(function(user) {
+      firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
           // If the user is logged in, set them as the Firechat user
           chat.setUser(user.uid, "Anonymous" + user.uid.substr(10, 8));
-        } else {
-          // If the user is not logged in, sign them in anonymously
-          firebase.auth().signInAnonymously().catch(function(error) {
-            console.log("Error signing user in anonymously:", error);
-          });
-        }
+        } 
       });
     </script>
+    <script src="https://eventfinity-production-assets.s3.amazonaws.com/materials/771501/original/gamification_main.js"></script>
   </body>
 </html>
