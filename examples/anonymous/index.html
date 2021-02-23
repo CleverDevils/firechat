@@ -10,7 +10,10 @@
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 
     <!-- Firechat -->
-    <link rel="stylesheet" href="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.css"
+    />
     <script src="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.js"></script>
 
     <!-- Custom CSS -->
@@ -31,7 +34,7 @@
         box-shadow: 0 5px 25px #666;
       }
     </style>
-  </head>
+  <!-- </head> -->
 
   <!--
     Example: Anonymous Authentication
@@ -51,30 +54,37 @@
     <script type="text/javascript">
       // Initialize Firebase SDK
       var config = {
-        apiKey: "AIzaSyDcptsFsMfVyuJdRuW0TMhHWj4guFOb96Q",
-        authDomain: "nfmfriendlychat.firebaseapp.com",
-        databaseURL: "https://nfmfriendlychat.firebaseio.com"
+        apiKey: "AIzaSyB_UfOy9uRdArhuIq4DaqFhWeX-pgSJHP8",
+        authDomain: "cgcaci21.firebaseapp.com",
+        databaseURL: "https://cgcaci21.firebaseio.com",
       };
-      firebase.initializeApp(config);
 
       // Get a reference to the Firebase Realtime Database
-      var chatRef = firebase.database().ref('firechat');
+      const chat_app = firebase.initializeApp(config, "chat_app");
+      // Get a reference to the Firebase Realtime Database
+      var chatRef = firebase.database(chat_app).ref("firechat");
 
       // Create an instance of Firechat
-      var chat = new FirechatUI(chatRef, document.getElementById("firechat-wrapper"));
+      var chat = new FirechatUI(
+        chatRef,
+        document.getElementById("firechat-wrapper")
+      );
 
       // Listen for authentication state changes
-      firebase.auth().onAuthStateChanged(function(user) {
+      firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
           // If the user is logged in, set them as the Firechat user
           chat.setUser(user.uid, "Anonymous" + user.uid.substr(10, 8));
         } else {
           // If the user is not logged in, sign them in anonymously
-          firebase.auth().signInAnonymously().catch(function(error) {
-            console.log("Error signing user in anonymously:", error);
-          });
+          firebase
+            .auth()
+            .signInAnonymously()
+            .catch(function (error) {
+              console.log("Error signing user in anonymously:", error);
+            });
         }
       });
     </script>
-  </body>
+  <!-- </body> -->
 </html>
