@@ -215,7 +215,8 @@
   .nav-tabs > li {
     float: left;
     margin-bottom: -1px;
-    max-width: 45%;
+    width: 100% !important;
+    height:7em;
   }
   .nav-tabs > li > a {
     .border-radii(4px, 0, 0, 4px);
@@ -224,6 +225,7 @@
     line-height: 20px;
     border: 1px solid transparent;
     border-color: #cccccc;
+    height: 100%;
   }
   .nav-tabs > .active > a,
   .nav-tabs > .active > a:hover,
@@ -708,4 +710,20 @@
   a > .icon {
     margin: 3px 1px;
   }
+}
+
+
+#firechat-side-nav {
+  height: 100%;
+  width: 7em;
+}
+#firechat-tab-list {
+  display: flex;
+  flex-direction: column;
+}
+.firechat-body {
+  display: flex;
+}
+#firechat-content {
+  width: 100%;
 }
