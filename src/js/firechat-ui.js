@@ -381,10 +381,10 @@
   FirechatUI.prototype._bindForRoomList = function() {
     var self = this;
 
-    $('#firechat-btn-rooms').bind('click', function() {
-      if ($(this).parent().hasClass('open')) {
-        return;
-      }
+    // $('#firechat-btn-rooms').bind('click', function() {
+      // if ($(this).parent().hasClass('open')) {
+        // return;
+      // }
 
       var $this = $(this),
           template = FirechatDefaultTemplates["templates/room-list-item.html"],
@@ -412,7 +412,7 @@
           self.$roomList.append($roomItem.toggle(true));
         }
       });
-    });
+    // });
   };
 
   /**
