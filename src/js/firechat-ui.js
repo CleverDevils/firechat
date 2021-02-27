@@ -114,7 +114,7 @@
     },
 
     _renderLayout: function() {
-      var template = FirechatDefaultTemplates["templates/layout-full.html"];
+      var template = FirechatDefaultTemplates["templates/nmr-layout-1.html"];
       $(this._el).html(template({
         maxLengthUsername: this.maxLengthUsername
       }));
