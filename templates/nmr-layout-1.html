@@ -1,13 +1,24 @@
 <div id="firechat" class="full">
   <div class="row">
+
     <div id="firechat-header" class="clearfix col-3">
       <div class="clearfix">
-        <div class="full firechat-dropdown" style="">
-          <a data-event="firechat-user-search-btn" class="btn full firechat-dropdown-toggle" data-toggle="firechat-dropdown" href="#">
+
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="firechat-dropdown" href="#"><span class="icon user-chat"></span> Chat Rooms</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" data-event="firechat-user-search-btn" data-toggle="firechat-dropdown" href="#"><span class="icon user-group"></span> Visitors</a>
+          </li>
+        </ul>
+
+        <div class="full firechat-dropdown visitors" style="">
+          <!-- <a data-event="firechat-user-search-btn" class="btn full firechat-dropdown-toggle" data-toggle="firechat-dropdown" href="#">
             <span class="icon user-group"></span>
             Visitors
             <span class="caret"></span>
-          </a>
+          </a> -->
           <div class="firechat-dropdown-menu" role="menu">
             <div class="firechat-dropdown-header aligncenter clearfix">
               <div class="search-wrapper">
@@ -17,7 +28,7 @@
             </div>
             <ul id="firechat-user-search"></ul>
 
-            <div class="firechat-dropdown-footer visitors aligncenter clearfix">
+            <!-- <div class="firechat-dropdown-footer aligncenter clearfix">
               <div id="firechat-user-search-controls" class="clearfix">
                 <span class="quarter"></span>
                 <button type="button" class="btn full" data-event="firechat-user-search" data-toggle="firechat-pagination-next" data-template="templates/user-search-list-item.html" data-target="firechat-user-search" data-controls="firechat-user-search-controls" disabled="disabled">
@@ -28,14 +39,14 @@
               <label class="center full">
                 <small>Use "+ Invite" button within chat rooms for regular invites.</small>
               </label>
-            </div>
+            </div> -->
           </div>
         </div>
 
         <div class="full firechat-dropdown rooms" style="">
           <!-- <a id="firechat-btn-rooms" class="firechat-dropdown-toggle btn full" data-toggle="firechat-dropdown" href="#"> -->
-            <span class="icon user-chat"></span>
-            Chat Rooms
+            <!-- <span class="icon user-chat"></span>
+            Chat Rooms -->
             <!-- <span class="caret"></span> -->
           <!-- </a> -->
           <div id="firechat-btn-rooms" class=" full" role="">
@@ -48,11 +59,11 @@
             </div>
           </div>
         </div>
-        
       </div>
     </div>
+
     <div id="firechat-tabs" class="clearfix col-9">
-      <ul id="firechat-tab-list" class="nav nav-tabs clearfix"></ul>
+      <!--<ul id="firechat-tab-list" class="nav nav-tabs clearfix"></ul>-->
       <div id="firechat-tab-content" class="tab-content"></div>
     </div>
   </div>
