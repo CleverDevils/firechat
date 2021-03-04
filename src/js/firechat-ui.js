@@ -381,10 +381,10 @@
   FirechatUI.prototype._bindForRoomList = function() {
     var self = this;
 
-    // $('#firechat-btn-rooms').bind('click', function() {
-      // if ($(this).parent().hasClass('open')) {
-        // return;
-      // }
+    $('#firechat-btn-rooms').bind('click', function() {
+      if ($(this).parent().hasClass('open')) {
+        return;
+      }
 
       var $this = $(this),
           template = FirechatDefaultTemplates["templates/room-list-item.html"],
@@ -412,7 +412,7 @@
           self.$roomList.append($roomItem.toggle(true));
         }
       });
-    // });
+    });
   };
 
   /**
@@ -520,8 +520,11 @@
     $(document).delegate('[data-event="firechat-user-search"]', 'keyup', handleUserSearchSubmit);
     $(document).delegate('[data-event="firechat-user-search"]', 'click', handleUserSearchSubmit);
 
-    // Upon click of the dropdown, autofocus the input field and trigger list population.
+    // Upon click of the dropdown, autofocus the input field and trigger list population.    
     $(document).delegate('[data-event="firechat-user-search-btn"]', 'click', function(event) {
+      if ($(this).parent().hasClass('open')) {
+        return;
+      }
       event.stopPropagation();
       var $input = $(this).next('div.firechat-dropdown-menu').find('input');
       $input.focus();
@@ -550,7 +553,7 @@
 
       // Require user confirmation for muting.
       if (!isMuted) {
-        var $prompt = self.prompt('Mute User?', template({
+        var $prompt = self.prompt('Mute User', template({
           userName: userName
         }));
 
